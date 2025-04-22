@@ -5,7 +5,7 @@ public class BinarySearch {
     
     public static void main(String[] args) {
         int [] sorted = new int[]{1,2,3,4,5,6,7,8};
-        // testing rebase
+        // testing rebase - i did it on local
         for (int x:sorted){
             System.out.println(new BinarySearch().hard(sorted, x, 0, sorted.length-1));
         }
