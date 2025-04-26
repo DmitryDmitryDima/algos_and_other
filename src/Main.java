@@ -1,6 +1,9 @@
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 
+import java.util.Arrays;
+import java.util.Random;
+
 class Outer {
 
     public void testInner(){
@@ -25,7 +28,20 @@ class Outer {
 
 
 
-public class Main {
+
+
+
+public class  Main {
+
+
+
+
+    static void varArg(String ...args){
+
+        // args is just array
+
+        Arrays.stream(args).forEach(System.out::println);
+    }
 
 
 
@@ -37,12 +53,10 @@ public class Main {
     public static void main(String[] args) {
 
 
-        Outer outer = new Outer();
-        Outer.Inner inner = new Outer.Inner();
 
-        outer.testInner();
-        inner.testOuter();
-
+        varArg("hello", "again");
+        varArg("why", "so", "old");
+        varArg();
 
 
 
