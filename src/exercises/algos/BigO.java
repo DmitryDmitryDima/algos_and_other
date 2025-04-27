@@ -3,8 +3,7 @@ package exercises.algos;
 public class BigO {
 
     public static void main(String[] args) {
-        recursive(4);
-
+        linearLog(8);
     }
 
     // общее время прямо зависит количества элементов в массиве
@@ -52,6 +51,27 @@ public class BigO {
 
         else {
             recursive(Math.floor(n/2));
+        }
+    }
+
+    // O nlogn
+    static void linearLog(int n){
+        for (int i = 0; i <= n; i++) {
+            // O log n операция внутри O(n)
+            int divided = i;
+            while (divided>=1){
+                divided = divided/2;
+            }
+        }
+    }
+
+    static void linearLogInverted(int n){
+        int total = n;
+        while (n>=1){
+            n = n/2;
+            for (int i = 0; i < total; i++) {
+                // some action
+            }
         }
     }
 }
