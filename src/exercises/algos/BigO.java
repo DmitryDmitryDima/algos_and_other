@@ -1,10 +1,24 @@
 package exercises.algos;
 
+import java.util.HashMap;
+
 public class BigO {
 
+
     public static void main(String[] args) {
-        linearLog(8);
+        factorialTimeExample(11);
     }
+    static void factorialTimeExample(int n){
+        if (n ==0) {
+            return;
+        }
+        else {
+            for (int i =0; i<=n; i++){
+                factorialTimeExample(n-1);
+            }
+        }
+    }
+
 
     // общее время прямо зависит количества элементов в массиве
     static void linear(int[] array){
@@ -74,4 +88,49 @@ public class BigO {
             }
         }
     }
+
+
+    static int naiveFinovacci2_n(int position){
+        // первые два числа ряда - 0, 1. Числа дальше - сумма двух предыдущих
+        System.out.println("here");
+        if (position == 0){
+            return 0;
+        }
+        else if (position == 1){
+            return 1;
+        }
+        else {
+            return naiveFinovacci2_n(position-1)+naiveFinovacci2_n(position-2);
+        }
+    }
+
+    static int cashedFinnobacci(int position, HashMap<Integer, Integer> cashe){
+        System.out.println("here");
+        if (position ==0) {
+            return 0;
+        }
+        else if (position == 1) {
+            return 1;
+        }
+
+        else {
+            // проверяем кеш - избегаем ненужных вычислений
+            if (cashe.containsKey(position)) return cashe.get(position);
+            else {
+                int sum = cashedFinnobacci(position-1, cashe) + cashedFinnobacci(position-2, cashe);
+                cashe.put(position, sum);
+                return sum;
+
+            }
+        }
+    }
+
+
+    static int factorial(int n){
+        if (n == 1) return 1;
+        return n*factorial(n-1);
+    }
+
+
+
 }
