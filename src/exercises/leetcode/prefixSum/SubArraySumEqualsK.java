@@ -26,12 +26,13 @@ public class SubArraySumEqualsK {
             if (currSum == k)
                 res++;
 
-            // Check if the difference exists in the prefixSums map.
+            // смотрим, есть ли суммы с недостающим значением.
+            // Каждая такая позиция в паре с текущим элементом будет рождать подмассив
             if (prefixSums.containsKey(currSum - k))
 
                 res += prefixSums.get(currSum - k); // может быть два разных подмассива, заканчивающихся на текущем элементе
 
-            // Add currSum to the set of prefix sums.
+
             prefixSums.put(currSum, prefixSums.getOrDefault(currSum, 0) + 1);
         }
 

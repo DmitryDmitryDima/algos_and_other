@@ -1,5 +1,7 @@
 package exercises.leetcode;
 
+
+
 import java.util.Arrays;
 import java.util.HashMap;
 
@@ -8,6 +10,7 @@ public class BestTimeToBuyAndSellStock {
     public static void main(String[] args) {
         int[] prices = {2,4,1};
         System.out.println(new BestTimeToBuyAndSellStock().maxProfit(prices));
+
     }
     public int maxProfit(int[] prices) {
 
@@ -31,3 +34,5 @@ public class BestTimeToBuyAndSellStock {
 
 
 }
+
+

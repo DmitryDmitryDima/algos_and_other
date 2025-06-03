@@ -54,10 +54,13 @@ public class  Main {
 
 
 
-        varArg("hello", "again");
-        varArg("why", "so", "old");
-        varArg();
+        try {
 
+        }
+
+        catch (NullPointerException n){
+
+        }
 
 
     }
