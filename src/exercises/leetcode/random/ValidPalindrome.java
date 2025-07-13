@@ -1,4 +1,4 @@
-package exercises.leetcode;
+package exercises.leetcode.random;
 
 public class ValidPalindrome {
 

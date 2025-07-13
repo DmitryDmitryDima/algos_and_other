@@ -1,4 +1,4 @@
-package exercises.leetcode;
+package exercises.leetcode.random;
 
 import java.util.HashMap;
 

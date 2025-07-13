@@ -1,9 +1,5 @@
-package exercises.leetcode;
+package exercises.leetcode.random;
 
-
-
-import java.util.Arrays;
-import java.util.HashMap;
 
 public class BestTimeToBuyAndSellStock {
 

@@ -26,17 +26,73 @@ public class PalindromeLinkedList {
 
 
 
-        ListNode prev = slow;
+        ListNode prev = new ListNode(slow.val);
 
         while (slow.next!=null){
             slow = slow.next;
-            prev.next = prev;
-            prev = slow;
+            ListNode current = new ListNode(slow.val);
+            current.next = prev;
+            prev = current;
+
+
         }
 
-        System.out.println(prev.next);
+        while (prev!=null){
+            if (prev.val!=head.val){
+                System.out.println("Alert");
+                return;
+            }
+            prev = prev.next;
+            head = head.next;
+        }
+        System.out.println("palindrome");
 
 
+    }
+
+
+    public boolean isPalindromeFloydVersion(ListNode head){
+        if (head == null || head.next == null) return true;
+
+        ListNode fast = head;
+        ListNode slow = head;
+
+
+        while (fast != null && fast.next != null) {
+
+
+            slow = slow.next;
+
+            fast = fast.next.next;
+
+        }
+
+        ListNode prev = null;
+        ListNode current = slow;
+
+        while (current.next!=null){
+
+            ListNode next = new ListNode(current.val);
+            current.next = prev;
+            prev = current;
+            current = next;
+
+
+        }
+
+        ListNode left = head;
+        ListNode right = prev;
+
+        while (prev!=null){
+            if (prev.val!=head.val){
+
+                return false;
+            }
+            prev = prev.next;
+            head = head.next;
+        }
+
+        return true;
     }
 
     public boolean isPalindrome(ListNode head) {

@@ -1,7 +1,5 @@
-package exercises.leetcode;
+package exercises.leetcode.random;
 
-
-import java.util.Arrays;
 
 public class TrappingRainWater {
 

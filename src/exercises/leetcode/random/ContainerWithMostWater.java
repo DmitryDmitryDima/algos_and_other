@@ -1,7 +1,5 @@
-package exercises.leetcode;
+package exercises.leetcode.random;
 
-import java.util.HashMap;
-import java.util.Map;
 import java.util.PriorityQueue;
 
 public class ContainerWithMostWater {
