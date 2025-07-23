@@ -1,4 +1,4 @@
-package language.words;
+package language.random_things;
 
 
 import java.io.*;
