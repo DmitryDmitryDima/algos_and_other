@@ -13,17 +13,50 @@ public class BoundedWildCard {
 
 
 
+
+
+
+
+        /*
+        Инвариантность - Integer is a subtype of Number => true
+        List<Integer> is a subtype of List<Number> => false (ведь в списке Number могут быть не только Integer)
+
+         */
+        List<Number> invariant1 = new ArrayList<>();
+        //invariant1 = new ArrayList<Integer>(); // error
+
+        /*
+        далее - парадигма PECS – producer extends, consumer super
+         */
+
+        /*
+        Ковариантность - Integer is a subtype of Number = true
+        List<Integer> is a subtype of List<? extends Number> = true
+        исходя из этого, мы можем читать тип Number
+         */
         List<Integer> x = new ArrayList<>();
         x.add(5);
-        List<? extends  Number> y  = x;
+        List<? extends  Number> y  = x; // не ясно, какой именно подтип, но точно Number
 
         Number number = y.getFirst(); // ковариантность - возможно чтение
+
+        /*
+        Контравариантность -Integer is a subtype of Number = true
+        List<? super Integer> is a subtype of Number = true
+        исходя из этого, мы можем писать в List<? super Integer> тип Integer
+         */
 
         List<Integer> d = new ArrayList<>();
         d.add(5);
         List<? super  Integer> c = d;
+        Object unknown = c.getFirst(); // можно читать лишь Object
 
-        c.add(5); // контравариантность - возможна запись
+        c.add(5); // контравариантность - возможна запись (не ясно, какой именно старший тип, но он точно Integer)
+
+
+
+
+
 
 
 
