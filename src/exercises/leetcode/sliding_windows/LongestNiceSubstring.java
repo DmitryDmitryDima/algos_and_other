@@ -3,7 +3,7 @@ package exercises.leetcode.sliding_windows;
 import java.util.*;
 
 
-// not divide & conquer
+// this is divide & conquer !!
 public class LongestNiceSubstring {
     public static void main(String[] args) {
 
@@ -41,7 +41,7 @@ public class LongestNiceSubstring {
                 System.out.println(candidate+" candidate");
                 String string = candidate.getKey();
                 Integer start = candidate.getValue();
-                Integer end = start+string.length()-1;
+                int end = start+string.length()-1;
 
 
                 int i ;
