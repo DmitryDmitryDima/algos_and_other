@@ -4,6 +4,10 @@ import java.util.List;
 
 public class ReverseLinkedList {
 
+    public ReverseLinkedList(){
+
+    }
+
 
     public static void main(String[] args) {
         ListNode head = new ListNode(1);
@@ -11,6 +15,9 @@ public class ReverseLinkedList {
         head.next.next = new ListNode(3);
         //head.next.next.next = new ListNode(4);
         //head.next.next.next.next = new ListNode(5);
+
+        String javaHome = System.getProperty("java.home");
+        System.out.println("Java Home: " + javaHome);
 
 
 
