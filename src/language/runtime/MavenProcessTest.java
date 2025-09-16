@@ -4,13 +4,56 @@ import java.io.*;
 
 public class MavenProcessTest {
 
-    //
+    // проект для примера обычной компиляции
     private static final String directory= "C:/Users/User/Desktop/filebase/dima/projects/demo3/";
 
+    // проект для примера обычной компиляции
+    private static final String directory1= "C:/Users/User/Desktop/filebase/dima/projects/demo/";
+
     // пример компиляции и запуска скомпилированного
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) throws Exception {
 
 
+        fatJar();
+
+
+
+    }
+
+
+    public static void fatJar() throws Exception {
+        ProcessBuilder pb = new ProcessBuilder("mvn.cmd", "package");
+        pb.directory(new File(directory1));
+        Process process = pb.start();
+
+        final InputStream stdoutInputStream = process.getInputStream();
+        final BufferedReader stdoutReader =
+                new BufferedReader(new InputStreamReader(stdoutInputStream));
+        String out;
+        while ((out = stdoutReader.readLine()) != null) {
+            //
+            System.out.println(out);
+        }
+
+        ProcessBuilder pbRun = new ProcessBuilder("java", "-jar", "target/fatjar.jar");
+        pbRun.directory(new File(directory1));
+        Process processRun = pbRun.start();
+        final InputStream stdoutInputStreamRun = processRun.getInputStream();
+        final BufferedReader stdoutReaderRun =
+                new BufferedReader(new InputStreamReader(stdoutInputStreamRun));
+        String outRun;
+        while ((outRun = stdoutReaderRun.readLine()) != null) {
+            //
+            System.out.println(outRun);
+        }
+
+
+
+
+    }
+
+
+    public static void compileClasses() throws IOException {
         ProcessBuilder pb = new ProcessBuilder("mvn.cmd", "compile"); // for linux ("mvn", "compile");
         pb.directory(new File(directory));
         Process process = pb.start();
@@ -37,9 +80,6 @@ public class MavenProcessTest {
             //
             System.out.println(outRun);
         }
-
-
-
     }
 
 
