@@ -23,6 +23,7 @@ public class MavenProcessTest {
 
     public static void fatJar() throws Exception {
         ProcessBuilder pb = new ProcessBuilder("mvn.cmd", "package");
+
         pb.directory(new File(directory1));
         Process process = pb.start();
 

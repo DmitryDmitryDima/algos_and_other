@@ -1,13 +1,80 @@
 package language.collections;
 
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Set;
+import language.io.Console;
+
+
+import java.util.*;
 
 public class BasicMapInterfaces {
 
+
+
     public static void main(String[] args) {
-        MapInterfaceDemo();
+
+        enum Test {ONE, TWO};
+
+        EnumMap<Test, String> map = new EnumMap<>(Test.class);
+
+        map.put(Test.ONE, "Hello");
+
+        System.out.println(map);
+
+
+
+        int[] x = {1,2,3};
+        int[] x2 = {1,2,5};
+
+        System.out.println(Arrays.mismatch(x, x2)); // 2
+
+
+    }
+
+    public static void SortedMapDemo(){
+        SortedMap<Integer, String> sortedMap = new TreeMap<>();
+
+        sortedMap.put(2,"Dima");
+        sortedMap.put(3,"Matt");
+        sortedMap.put(1, "John");
+        sortedMap.put(4,"Kate");
+
+        // 1,2,3,4
+
+        // последний и первый ключи
+        Integer firstKey = sortedMap.firstKey(); // 1
+        Integer lastKey = sortedMap.lastKey(); //4
+
+        // sub map, где ключ < 3
+        SortedMap<Integer, String> headMap = sortedMap.headMap(3); //1 2
+        // sub map, где ключ >= 2
+        SortedMap<Integer, String> tailMap = sortedMap.tailMap(2); // 2,3,4
+
+        // sub map c обеими границами
+        SortedMap<Integer, String> subMap = sortedMap.subMap(2,4); // 2,3
+
+    }
+
+
+    public static void SequencedMapInterfaceDemo(){
+        SequencedMap<Integer, String> sequencedMap = new LinkedHashMap<>();
+        // по аналогии с очередью, мы можем вставлять либо в начало, либо в конец, и порядок сохранится
+        sequencedMap.putLast(2,"Dima");
+        sequencedMap.putFirst(1, "Mate");
+        sequencedMap.putLast(3, "John");
+        // 1 2 3 order
+
+        // контент
+        for (Map.Entry<Integer, String> entry:sequencedMap.sequencedEntrySet()){
+            System.out.println(entry);
+        }
+        // контент
+        sequencedMap.forEach((k,v)->{});
+
+        // удаляем пару в начале
+        Map.Entry<Integer, String> removedFromStart = sequencedMap.pollFirstEntry(); // 1 - Mate
+
+        // удаляем пару в конце
+        Map.Entry<Integer, String> removedFromEnd = sequencedMap.pollLastEntry(); // 3 - John
+
     }
 
 
