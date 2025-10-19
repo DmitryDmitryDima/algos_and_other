@@ -1,5 +1,6 @@
 package language.runtime;
 
+import javax.swing.*;
 import java.io.*;
 
 public class MavenProcessTest {
@@ -13,11 +14,42 @@ public class MavenProcessTest {
     // пример компиляции и запуска скомпилированного
     public static void main(String[] args) throws Exception {
 
+        try{
+            dockerPresenceTest();
+        }
+        catch (Exception e){
+            System.out.println("Exception "+e.getMessage()); //Cannot run program "docker": CreateProcess error=2, Не удается найти указанный файл
+        }
 
-        fatJar();
 
 
+    }
 
+    public static void dockerPresenceTest() throws Exception{
+        ProcessBuilder pb = new ProcessBuilder("docker", "--version");
+        Process process = pb.start(); // ОШИБКА ТУТ
+
+
+        try (final InputStream stdoutInputStream = process.getInputStream();
+             final BufferedReader stdoutReader =
+                     new BufferedReader(new InputStreamReader(stdoutInputStream))
+        ){
+            String out;
+            while ((out = stdoutReader.readLine()) != null) {
+                System.out.println(out);
+
+
+            }
+        }
+        catch (Exception e){
+            System.out.println("Error!");
+            e.printStackTrace();
+        }
+
+        int exitCode = process.waitFor();
+        if (exitCode!=0){
+            System.out.println("error");
+        }
     }
 
 
@@ -47,6 +79,8 @@ public class MavenProcessTest {
             //
             System.out.println(outRun);
         }
+
+
 
 
 
