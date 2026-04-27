@@ -1,7 +1,19 @@
-package exercises2.algo_patterns;
+package exercises2.algo_patterns.prefix_sum;
 
 import java.util.Arrays;
 
+
+ /*
+Классическая задача на сумму подмассивов.
+Основной сложностью было вспомнить, как вычислять подмассивы.
+Загвоздка была в том, что мы вычитаем
+prefixSum[right]-prefix[left-1], так как значение left не входит в то,
+что нужно убрать из диапазона для ответа.
+
+Сам prefixSum вычислялся с использованием массива,
+равного по размеру входящему массиву.
+В таком случае nums[0] = prefixSum[0], а расчет начинается с индекса 1.
+  */
 public class RangeSumQueryImmutable {
 
 
