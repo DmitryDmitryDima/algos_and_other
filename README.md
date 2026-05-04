@@ -26,6 +26,21 @@ Deque, Queue - интерфейсы, ArrayDeque
 То же самое и с конкретными элементам
 
 
+## Queue
+
+
+
+## Monotonic stack
+
+
+## Priority Queue
+
+
+## Linked List
+
+
+
+
 
 # Паттерны решения алгоритмических задач
 - Prefix Sum
@@ -41,8 +56,11 @@ Deque, Queue - интерфейсы, ArrayDeque
 - DFS (tree, graph)
 - BFS (tree, graph)
 - Matrix traversal
-- Backtracking
+- Backtracking (subsets)
+- Merge Intervals
+- Cyclic sort
 - Dynamic Programming
+- Two heaps
 
 
 
