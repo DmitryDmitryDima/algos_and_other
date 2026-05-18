@@ -18,9 +18,27 @@ public class Test {
 
 
 
-        int[] sorted = {1,2,3,4};
 
-        System.out.println(Arrays.binarySearch(sorted, 4));
+
+        int size = 20;
+
+        int limit = 10;
+
+
+
+        int current = 1;
+
+        while (current<=size){
+
+            System.out.println(current+" "+(current-1));
+
+
+            if (current%limit==0){
+                System.out.println("chunk division on "+current);
+                System.out.println("index equals "+(current-1));
+            }
+            current++;
+        }
     }
 
 }

@@ -39,6 +39,19 @@ Deque, Queue - интерфейсы, ArrayDeque
 ## Linked List
 
 
+## Graph
+
+## String
+
+## Array
+
+
+## Trie
+
+
+## Union-Find (Disjoint Set Union)
+
+
 
 
 
